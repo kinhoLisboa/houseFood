@@ -2,6 +2,7 @@ package com.restaurante.delivery.housefood.cliente.domain;
 
 
 import com.restaurante.delivery.housefood.cliente.endereco.Endereco;
+import com.restaurante.delivery.housefood.cliente.request.ClienteRequest;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,4 +21,11 @@ public class Cliente {
     private String cpf;
     private String email;
     private Endereco endereco;
+
+    public Cliente(ClienteRequest clienteRequest) {
+        this.idCliente = clienteRequest.getIdCliente();
+        this.nome = clienteRequest.getNome();
+        this.cpf = clienteRequest.getCpf();
+        this.email = clienteRequest.getEmail();
+        this.endereco = clienteRequest.getEndereco();
 }
