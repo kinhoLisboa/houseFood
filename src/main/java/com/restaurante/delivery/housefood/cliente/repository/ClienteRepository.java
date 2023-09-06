@@ -1,10 +1,17 @@
 package com.restaurante.delivery.housefood.cliente.repository;
 
 import com.restaurante.delivery.housefood.cliente.domain.Cliente;
-import com.restaurante.delivery.housefood.cliente.request.ClienteRequest;
+
+import java.util.List;
+import java.util.UUID;
 
 public interface ClienteRepository {
 
 
-    Cliente insere(Cliente cliente);
+    Cliente salva(Cliente cliente);
+
+
+    List<Cliente> getList();
+
+    Cliente getId(UUID id);
 }
