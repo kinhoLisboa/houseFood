@@ -14,4 +14,6 @@ public interface ClienteRepository {
     List<Cliente> getList();
 
     Cliente getId(UUID id);
+
+    void delete(UUID id);
 }

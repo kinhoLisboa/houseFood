@@ -2,7 +2,6 @@ package com.restaurante.delivery.housefood.cliente.response;
 
 import com.restaurante.delivery.housefood.cliente.domain.Cliente;
 import com.restaurante.delivery.housefood.cliente.endereco.Endereco;
-import jakarta.persistence.Embedded;
 import lombok.Value;
 
 import java.util.UUID;
@@ -17,7 +16,7 @@ public class ClienteDetalhadoResponse {
     private Endereco endereco;
 
     public ClienteDetalhadoResponse(Cliente cliente) {
-        this.id = cliente.getIdCliente();
+        this.id = cliente.getId();
         this.nome = cliente.getNome();
         this.cpf = cliente.getCpf();
         this.email = cliente.getEmail();

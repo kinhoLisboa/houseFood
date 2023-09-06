@@ -2,6 +2,7 @@ package com.restaurante.delivery.housefood.cliente.domain;
 
 
 import com.restaurante.delivery.housefood.cliente.endereco.Endereco;
+import com.restaurante.delivery.housefood.cliente.request.AtualizaClienteRequest;
 import com.restaurante.delivery.housefood.cliente.request.ClienteRequest;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -19,7 +20,7 @@ import java.util.UUID;
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID idCliente;
+    private UUID id;
     private String nome;
     private String cpf;
     private String email;
@@ -27,7 +28,7 @@ public class Cliente {
     private Endereco endereco;
 
     public Cliente(ClienteRequest clienteRequest) {
-        this.idCliente = clienteRequest.getIdCliente();
+        this.id = clienteRequest.getIdCliente();
         this.nome = clienteRequest.getNome();
         this.cpf = clienteRequest.getCpf();
         this.email = clienteRequest.getEmail();
@@ -35,4 +36,8 @@ public class Cliente {
     }
 
 
+    public void altera(AtualizaClienteRequest request) {
+        this.email = request.getEmail();
+        this.endereco = new Endereco(request.getEndereco());
+    }
 }

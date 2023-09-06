@@ -11,7 +11,7 @@ public class ClienteResponse {
 
 
     public ClienteResponse(Cliente cliente) {
-        this.idCliente = cliente.getIdCliente();
+        this.idCliente = cliente.getId();
     }
 
 

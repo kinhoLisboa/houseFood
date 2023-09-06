@@ -35,8 +35,16 @@ public class ClienteInfraRepository implements  ClienteRepository{
     @Override
     public Cliente getId(UUID id) {
         log.info("[Inicial] ClienteInfraRepository-getId");
-        Cliente client = repository.getReferenceById(id);
+        var client = repository.getReferenceById(id);
         log.info("[Finaliza] ClienteInfraRepository-getId");
         return client;
+    }
+
+    @Override
+    public void delete(UUID id) {
+        log.info("[Inicial] ClienteInfraRepository-delete");
+        repository.deleteById(id);
+        log.info("[Finaliza] ClienteInfraRepository-delete");
+
     }
 }

@@ -1,6 +1,7 @@
 package com.restaurante.delivery.housefood.cliente.service;
 
 import com.restaurante.delivery.housefood.cliente.domain.Cliente;
+import com.restaurante.delivery.housefood.cliente.request.AtualizaClienteRequest;
 import com.restaurante.delivery.housefood.cliente.request.ClienteRequest;
 import com.restaurante.delivery.housefood.cliente.response.ClienteDetalhadoResponse;
 import com.restaurante.delivery.housefood.cliente.response.ClienteListResponse;
@@ -16,5 +17,10 @@ public interface ClienteService {
 
     List<ClienteListResponse> lista();
 
-    ClienteDetalhadoResponse busca(UUID id);
+    Cliente busca(UUID id);
+
+
+    void altera(UUID id, AtualizaClienteRequest request);
+
+    void deleta(UUID id);
 }

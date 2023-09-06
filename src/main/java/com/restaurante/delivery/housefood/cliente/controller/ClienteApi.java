@@ -1,5 +1,6 @@
 package com.restaurante.delivery.housefood.cliente.controller;
 
+import com.restaurante.delivery.housefood.cliente.request.AtualizaClienteRequest;
 import com.restaurante.delivery.housefood.cliente.request.ClienteRequest;
 import com.restaurante.delivery.housefood.cliente.response.ClienteDetalhadoResponse;
 import com.restaurante.delivery.housefood.cliente.response.ClienteListResponse;
@@ -23,4 +24,12 @@ public interface ClienteApi {
     @GetMapping("/{id}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     ClienteDetalhadoResponse detalhado(@PathVariable UUID id);
+
+    @PatchMapping("/{id}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void atualizar(@PathVariable UUID id, @RequestBody AtualizaClienteRequest request);
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void exclui (@PathVariable UUID id);
 }

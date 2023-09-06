@@ -1,5 +1,7 @@
 package com.restaurante.delivery.housefood.cliente.controller;
 
+import com.restaurante.delivery.housefood.cliente.domain.Cliente;
+import com.restaurante.delivery.housefood.cliente.request.AtualizaClienteRequest;
 import com.restaurante.delivery.housefood.cliente.request.ClienteRequest;
 import com.restaurante.delivery.housefood.cliente.response.ClienteDetalhadoResponse;
 import com.restaurante.delivery.housefood.cliente.response.ClienteListResponse;
@@ -37,8 +39,22 @@ public class ApiRestController implements ClienteApi {
     @Override
     public ClienteDetalhadoResponse detalhado(UUID id) {
         log.info("[Inicial] ApiRestController-detalhado");
-        ClienteDetalhadoResponse cliente = clienteService.busca(id);
+        Cliente cliente = clienteService.busca(id);
         log.info("[Finaliza] ApiRestController-detalhado");
-        return cliente;
+        return new  ClienteDetalhadoResponse(cliente);
+    }
+
+    @Override
+    public void atualizar(UUID id, AtualizaClienteRequest request) {
+        log.info("[Inicial] ApiRestController-atualizar");
+        clienteService.altera(id, request);
+        log.info("[Finaliza] ApiRestController-atualizar");
+    }
+
+    @Override
+    public void exclui(UUID id) {
+        log.info("[Inicial] ApiRestController-exclui");
+        clienteService.deleta(id);
+        log.info("[Finaliza] ApiRestController-exclui");
     }
 }

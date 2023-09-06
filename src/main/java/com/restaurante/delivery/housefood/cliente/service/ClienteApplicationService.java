@@ -2,6 +2,7 @@ package com.restaurante.delivery.housefood.cliente.service;
 
 import com.restaurante.delivery.housefood.cliente.domain.Cliente;
 import com.restaurante.delivery.housefood.cliente.repository.ClienteRepository;
+import com.restaurante.delivery.housefood.cliente.request.AtualizaClienteRequest;
 import com.restaurante.delivery.housefood.cliente.request.ClienteRequest;
 import com.restaurante.delivery.housefood.cliente.response.ClienteDetalhadoResponse;
 import com.restaurante.delivery.housefood.cliente.response.ClienteListResponse;
@@ -38,10 +39,27 @@ public class ClienteApplicationService implements ClienteService{
     }
 
     @Override
-    public ClienteDetalhadoResponse busca(UUID id) {
+    public Cliente busca(UUID id) {
         log.info("[Inicial] ClienteApplicationService-busca");
-        Cliente cliente = clienteRepository.getId(id);
+        var cliente = clienteRepository.getId(id);
         log.info("[Finaliza] ClienteApplicationService-busca");
-        return new ClienteDetalhadoResponse(cliente);
+        return cliente;
+    }
+
+    @Override
+    public void altera(UUID id, AtualizaClienteRequest request) {
+        log.info("[Inicial] ClienteApplicationService-altera");
+        var cliente = clienteRepository.getId(id);
+        cliente.altera(request);
+        clienteRepository.salva(cliente);
+        log.info("[Finaliza] ClienteApplicationService-altera");
+    }
+
+    @Override
+    public void deleta(UUID id) {
+        log.info("[Inicial] ClienteApplicationService-deleta");
+        clienteRepository.delete(id);
+        log.info("[Finaliza] ClienteApplicationService-deleta");
+
     }
 }
