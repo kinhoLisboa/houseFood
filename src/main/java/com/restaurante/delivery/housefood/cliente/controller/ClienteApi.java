@@ -27,7 +27,7 @@ public interface ClienteApi {
 
     @PatchMapping("/{id}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
-    void atualizar(@PathVariable UUID id, @RequestBody AtualizaClienteRequest request);
+    void atualiza (@PathVariable UUID id, @RequestBody AtualizaClienteRequest request);
 
     @DeleteMapping("/{id}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)

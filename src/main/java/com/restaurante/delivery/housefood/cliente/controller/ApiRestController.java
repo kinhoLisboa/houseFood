@@ -45,7 +45,7 @@ public class ApiRestController implements ClienteApi {
     }
 
     @Override
-    public void atualizar(UUID id, AtualizaClienteRequest request) {
+    public void atualiza(UUID id, AtualizaClienteRequest request) {
         log.info("[Inicial] ApiRestController-atualizar");
         clienteService.altera(id, request);
         log.info("[Finaliza] ApiRestController-atualizar");
