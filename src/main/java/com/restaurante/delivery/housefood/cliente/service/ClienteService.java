@@ -17,7 +17,7 @@ public interface ClienteService {
 
     List<ClienteListResponse> lista();
 
-    Cliente busca(UUID id);
+    ClienteDetalhadoResponse busca(UUID id);
 
 
     void altera(UUID id, AtualizaClienteRequest request);

@@ -6,8 +6,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import java.util.Optional;
-
-import static jdk.tools.jlink.internal.plugins.PluginsResourceBundle.getDescription;
 @Getter
 @Log4j2
 public class APIException extends  RuntimeException{

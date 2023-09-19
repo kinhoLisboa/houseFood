@@ -5,6 +5,7 @@ import com.restaurante.delivery.housefood.cliente.request.ClienteRequest;
 import com.restaurante.delivery.housefood.cliente.response.ClienteDetalhadoResponse;
 import com.restaurante.delivery.housefood.cliente.response.ClienteListResponse;
 import com.restaurante.delivery.housefood.cliente.response.ClienteResponse;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,20 +17,19 @@ import java.util.UUID;
 public interface ClienteApi {
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
-    ClienteResponse cria(@RequestBody ClienteRequest clienteRequest);
+    ClienteResponse cria(@Valid @RequestBody  ClienteRequest clienteRequest);
 
     @GetMapping
     List<ClienteListResponse> list();
 
-    @GetMapping("/{id}")
-    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    @GetMapping(value="/{id}")
     ClienteDetalhadoResponse detalhado(@PathVariable UUID id);
 
-    @PatchMapping("/{id}")
+    @PatchMapping(value="/{id}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
-    void atualiza (@PathVariable UUID id, @RequestBody AtualizaClienteRequest request);
+    void atualiza (@PathVariable UUID id,@Valid @RequestBody AtualizaClienteRequest request);
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping(value="/{id}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void exclui (@PathVariable UUID id);
 }

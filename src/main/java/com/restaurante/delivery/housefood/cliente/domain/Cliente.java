@@ -10,6 +10,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
 import java.util.UUID;
 
 @Getter
@@ -37,7 +38,10 @@ public class Cliente {
 
 
     public void altera(AtualizaClienteRequest request) {
-        this.email = request.getEmail();
-        this.endereco = new Endereco(request.getEndereco());
+
+        this.email= request.getEmail();
+
+        this.endereco.altera(new Endereco(request.getEndereco()));
+
     }
 }

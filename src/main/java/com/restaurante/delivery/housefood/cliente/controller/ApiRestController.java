@@ -39,9 +39,9 @@ public class ApiRestController implements ClienteApi {
     @Override
     public ClienteDetalhadoResponse detalhado(UUID id) {
         log.info("[Inicial] ApiRestController-detalhado");
-        Cliente cliente = clienteService.busca(id);
+        ClienteDetalhadoResponse  cliente = clienteService.busca(id);
         log.info("[Finaliza] ApiRestController-detalhado");
-        return new  ClienteDetalhadoResponse(cliente);
+        return  cliente;
     }
 
     @Override
